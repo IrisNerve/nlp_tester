@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<link rel="stylesheet" type="text/css" href="static/index_style.css" />
+		<script type="text/javascript" src="static/jquery-1.8.3.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="static/index_script.js"></script>
+	</head>
+	<body>
+		<div id="csrf">{% csrf_token %}</div>
+		<h1>Iris NLP Tester</h1>
+		<form id="article_url_form">
+		<input id="article_url" class="article_url" type="text" placeholder="Article URL"/>
+		<br>
+		<input id="article_url_submit" class="article_url_submit" type="submit" value="Analyze!" />
+		</form>
+		<div id="article_text"></div>
+	</body>
+</html>
