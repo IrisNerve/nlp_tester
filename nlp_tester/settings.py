@@ -86,10 +86,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR + '/static'
 
 STATICFILES_DIRS = (
-    BASE_DIR + '/nlp_tester/templates/static',
+    BASE_DIR + '/article_analyze/templates/static',
 )
 
 # Location of templates
 TEMPLATE_DIRS = (
-    BASE_DIR + '/nlp_tester/templates',
+    BASE_DIR + '/article_analyze/templates',
 )

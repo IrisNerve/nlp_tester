@@ -6,7 +6,7 @@ urlpatterns = patterns('',
 	(r'^static/(?P<path>.*)$', 'django.views.static.serve',{'document_root': STATIC_ROOT, 'show_indexes': True}),
 )
 
-urlpatterns += patterns('nlp_tester.views',
+urlpatterns += patterns('article_analyze.views',
     (r'^$', 'index'),
     (r'^analyze/$', 'analyze_url'),
 )
