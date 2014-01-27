@@ -77,6 +77,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+OC_API_KEY = 'jst4gxw6rzj2vzxwgbh5v6dv'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
