@@ -3,8 +3,6 @@ Iris NLP Tester
 
 Installation
 ------------
-::
-
 	mkvirtualenv nlp_tester
 	git clone https://github.com/IrisNerve/nlp_tester.git
 	cd nlp_tester
@@ -15,8 +13,7 @@ Test
 ----
 
 Run the command
-
-::
+	
 	python manage.py runserver
 
 Go to 127.0.0.1:8000 in a browser. 
