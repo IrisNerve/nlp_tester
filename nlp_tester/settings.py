@@ -30,11 +30,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'article_analyze',
+    'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,8 +58,7 @@ WSGI_APPLICATION = 'nlp_tester.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
-        'USERNAME': 'root',
+        'USER': 'root',
         'PASSWORD': 'Ego371!FTW',
         'NAME': 'nlp_tester',
     }
