@@ -1,7 +1,7 @@
 from django.db import models
 
 class Article(models.Model):
-	text = models.TextField()
+	url = models.URLField()
 
 class Tag(models.Model):
 	ALCHEMY = 0
@@ -13,5 +13,6 @@ class Tag(models.Model):
 
 	article = models.ForeignKey(Article)
 	tag = models.TextField()
+	confidence = models.DecimalField(max_digits=5, decimal_places = 4, default=0)
 	service = models.IntegerField(choices = SERVICES)
-	vote = models.BooleanField(default = False)
+	vote = models.NullBooleanField(default = None)

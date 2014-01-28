@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import Template, Context
+from django.conf import settings
 
-from nlp_tester.models import *
-from nlp_tester.settings import OC_API_KEY
+from article_analyze.models import *
 
 from calais import Calais
-import json
+from operator import itemgetter
 
 '''
 	Page loaders
@@ -22,9 +23,40 @@ def index(request):
 
 # Extract article text and analyze
 def analyze_url(request):
-	calais = Calais(OC_API_KEY)
+	# Use python-calais to analyze the article given by url
+	calais = Calais(settings.OC_API_KEY)
 	result = calais.analyze_url(request.POST['url'])
-	#result = calais.analyze("George Bush was the President of the United States of America until 2009.  Barack Obama is the new President of the United States now.")
+
+	# Create a dictionary to store all the tags and confidences
+	# Get rid of all duplicates
+	entity_dict = dict([])
 	for entity in result.entities:
-		print entity['name'] + ' - ' + str(entity['relevance'])
-	return HttpResponse(json.dumps(result.entities, indent=4))
+		if not entity_dict.has_key(entity['name']):
+			entity_dict[entity['name']] = entity['relevance']
+
+	# Sort the tags by confidence/relavence
+	entity_list = sorted(entity_dict.iteritems(), key=itemgetter(1), reverse=True)
+
+	# Insert the article into the database
+	a = Article(
+		url = request.POST['url']
+	)
+	a.save()
+
+	# Insert the OpenCalais tags with confidence > .3 into the database
+	for tag, confidence in entity_list:
+		if confidence > .3:
+			t = Tag(
+				article = a,
+				tag = tag,
+				confidence = confidence,
+				service = Tag.OPEN_CALAIS,
+			)
+			t.save()
+		else:
+			break
+
+	c = {
+		'entity_list': entity_list
+	}
+	return render(request, 'tag_list.html', c)
