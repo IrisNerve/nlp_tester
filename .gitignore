@@ -2,4 +2,4 @@
 *.pot
 *.pyc
 .DS_STORE
-local_settings.py
+nlp_tester/settings/local.py
