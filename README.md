@@ -5,6 +5,12 @@ Installation
 ------------
 Make sure you have virtialenv and virtualenvwrapper installed. Look [here](http://virtualenvwrapper.readthedocs.org/en/latest/) for instructions in case you don't.
 
+Also make sure you have a MySQL server instance running. Instructions for getting that on Mac are [here](http://www.macminivault.com/mysql-mountain-lion/). Run the following command after you're done installing MySQL
+
+	sudo ln -s /usr/local/mysql/lib/libmysqlclient.18.dylib /usr/lib/libmysqlclient.18.dylib
+
+Install this tester once you have those.
+
 	mkvirtualenv nlp_tester
 	git clone https://github.com/IrisNerve/nlp_tester.git
 
