@@ -1,5 +1,8 @@
 <ol>
-	{% for entity in entity_list %}
-		<li>{{entity}}</li>
+	<form id="tag_vote_form">
+	{% for tag in tags %}
+		<input type="checkbox" value="{{tag.id}}">{{tag.tag}}</input><br>
 	{% endfor %}
+		<input id="vote_submit" class="vote_submit" type="submit" value="Vote" />
+	</form>
 </ol>
