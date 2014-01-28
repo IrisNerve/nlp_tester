@@ -8,7 +8,7 @@ Make sure you have virtialenv and virtualenvwrapper installed. Look [here](http:
 	mkvirtualenv nlp_tester
 	git clone https://github.com/IrisNerve/nlp_tester.git
 
-At this point, you should open up nlp_tester/settings/local.py and change the values to your own local values. My file (local.py) looks like
+At this point, you should create nlp_tester/settings/local.py and add your own local values. My file (local.py) looks like
 
 	from nlp_tester.settings.base import *
 
@@ -16,14 +16,10 @@ At this point, you should open up nlp_tester/settings/local.py and change the va
 	    'default': {
 	        'ENGINE': 'django.db.backends.mysql',
 	        'USER': 'root',
-	        'PASSWORD': 'Ego371!FTW',
+	        'PASSWORD': 'MaiFakePW',
 	        'NAME': 'nlp_tester',
 	    }
 	}
-
-	INSTALLED_APPS += (
-		'debug_toolbar',
-	)
 
 	# SECURITY WARNING: don't run with debug turned on in production!
 	DEBUG = True
