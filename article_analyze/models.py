@@ -15,4 +15,8 @@ class Tag(models.Model):
 	tag = models.TextField()
 	confidence = models.DecimalField(max_digits=5, decimal_places = 4, default=0)
 	service = models.IntegerField(choices = SERVICES)
-	vote = models.NullBooleanField(default = None)
+	vote = models.IntegerField(default = 0)
+
+	def upvote(self):
+		self.vote += 1
+		self.save()

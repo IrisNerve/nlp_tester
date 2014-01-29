@@ -9,4 +9,5 @@ urlpatterns = patterns('',
 urlpatterns += patterns('article_analyze.views',
     (r'^$', 'index'),
     (r'^analyze/$', 'analyze_url'),
+    (r'^upvote/$', 'tag_vote'),
 )

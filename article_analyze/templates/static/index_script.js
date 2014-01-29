@@ -12,5 +12,17 @@ $(document).ready(function(){
 		return false;
 	});
 
+	$('#tag_vote_form').live('submit', function(){
+		var tag_ids = []
+		$('#tag_vote_form :checked').each(function(){
+			tag_ids.push($(this).val());
+		});
+
+		$.post('/upvote/', {'tag_ids': tag_ids.join(), 'csrfmiddlewaretoken':token}, function(data){
+			$('#article_tags').text('Thanks for voting!');
+			return false;
+		});
+		return false;
+	});
 
 });

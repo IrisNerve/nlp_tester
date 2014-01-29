@@ -1,5 +1,8 @@
 Iris NLP Tester
 ==========
+Intro
+-----
+This is meant to conduct an experiment to figure out whether we should use OpenCalais or AlchemyAPI or any other service. Whenever you read an article, paste the URL into this app and vote on tags you think are relavent. After we get enough data, we'll come to a more informed decision.
 
 Installation
 ------------
@@ -49,7 +52,12 @@ Go to [127.0.0.1:8000](http://127.0.0.1:8000) in a browser.
 
 Enter the URL of the article you want to analyze and hit "Analyze!"
 
-Known Issues
+To-do
+-----
+Add support for [AlchemyAPI](http://www.alchemyapi.com/products/demo/)
+
+
+Bugs
 ------------
 
-Right now, although the process runs, there is no indication in the UI. I'm having a hard time constructing the list of tags to show in the UI. If someone can figure this out (Shawn pls), please fix it.
+I don't know if there are any, email me if you find some.
